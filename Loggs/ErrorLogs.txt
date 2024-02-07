@@ -1,0 +1,6 @@
+﻿namespace OtarioLearning.Loggs
+{
+    public class ErrorLogs
+    {
+    }
+}
