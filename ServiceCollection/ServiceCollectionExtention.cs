@@ -12,7 +12,8 @@ namespace OtarioLearning.ServiceCollection
             services.AddTransient<IRepository, ReposytoryIMplementation>();
             services.AddTransient<IDailyTopicWordsService,DailyTopicWordsImplementation>();
             services.AddTransient<ICleanDownloadsFolder,CleanDownloadsFolder>();
-            services.AddHostedService<HostedServiceBackground>();
+  /*          services.AddHostedService<DailyTopicWordsImplementation>();*/
+            services.AddHostedService<CleanDownloadsFolder>();
             return services; 
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OtarioLearning.DataBaseContext.Configurations;
 using OtarioStudy.Models;
 
 namespace OtarioStudy.DataBaseContext
@@ -12,5 +13,11 @@ namespace OtarioStudy.DataBaseContext
         public DbSet<Words> Words { get; set; }
         public DbSet<WordsTopic> WordsTopics { get; set; }
         public DbSet<User> Users { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new WordsConfigurations());
+            modelBuilder.ApplyConfiguration(new WordsTopicConfiguration());
+        }
     }
 }

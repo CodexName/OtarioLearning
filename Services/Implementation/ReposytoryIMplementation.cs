@@ -12,20 +12,7 @@ namespace OtarioStudy.Services.Implementation
         {
             this.Context = Context; 
         }
-        public List<WordsTopic> GetAllTopics()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<User> GetAllUsers()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UserDailyTopicUptade(string Topic)
-        {
-            throw new NotImplementedException();
-        }
+   
     }
 
 }

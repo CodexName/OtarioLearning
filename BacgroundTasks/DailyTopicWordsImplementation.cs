@@ -1,42 +1,54 @@
-﻿using OtarioStudy.Services.Interfaces;
-using System.Security.Cryptography.X509Certificates;
+﻿using Microsoft.EntityFrameworkCore;
+using OtarioStudy.DataBaseContext;
+using System;
 
 namespace OtarioStudy.BacgroundTasks
 {
-    public class DailyTopicWordsImplementation  : IDailyTopicWordsService
-    {
-        IRepository Repository;
-        public DailyTopicWordsImplementation(IRepository Repository)
-        {
-            this.Repository = Repository;
-        }
+    public class DailyTopicWordsImplementation : IDailyTopicWordsService, IHostedService
+    {        
         public void GetDailyTopic(object obj)
         {
-            var UsersList = Repository.GetAllUsers();
-            var AllTopics = Repository.GetAllTopics();
-            foreach (var User in UsersList)
+            var options = new DbContextOptionsBuilder<OtarioDbContext>().UseSqlite("ConnectionStr").Options;
+            using (OtarioDbContext Context = new OtarioDbContext(options))
             {
-                foreach (var PassedTopic in User.PassedTopics)
+                var UsersList = Context.Users.ToList();
+                var AllTopics = Context.WordsTopics.ToList();
+                foreach (var User in UsersList)
                 {
-                    foreach (var Topic in AllTopics)
+                    foreach (var PassedTopic in User.PassedTopics)
                     {
-                        if (PassedTopic.Topic == Topic.Topic)
+                        foreach (var Topic in AllTopics)
                         {
-                            continue;
-                        }
-                        else if (PassedTopic.Topic != Topic.Topic)
-                        {
-                            Repository.UserDailyTopicUptade(Topic.Topic);                 
-                            break;
+                            if (PassedTopic.Topic == Topic.Topic)
+                            {
+                                continue;
+                            }
+                            else if (PassedTopic.Topic != Topic.Topic)
+                            {
+                                Context.Users.ExecuteUpdate(x => x.SetProperty(x => x.TodaysTopic, Topic.Topic));
+                                break;
+                            }
                         }
                     }
                 }
             }
+           
         }
         public void Start()
         {
             TimerCallback timerCallback = new TimerCallback(GetDailyTopic);
-            Timer timer = new Timer(timerCallback,null,0, 86400000);
+            Timer timer = new Timer(timerCallback, null, 20000, 86400000);
+        }
+
+        public Task StartAsync(CancellationToken cancellationToken)
+        {
+            Start();
+            return Task.CompletedTask;
+        }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OtarioLearning")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5d7dca07f93bfc79b9cac3c5a48032234fcaf1f")]
 [assembly: System.Reflection.AssemblyProductAttribute("OtarioLearning")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OtarioLearning")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
