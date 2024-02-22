@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OtarioLearning", "OtarioLearning.csproj", "{05A304E3-8999-4F13-B9FC-89D7EE69B190}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTest", "..\XUnitTest\XUnitTest.csproj", "{54A41D88-151D-4CCE-8FFC-9EEECC053DDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTest", "..\XUnitTest\XUnitTest.csproj", "{9BE54CFD-1800-40B9-934B-2869E71B9F47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{05A304E3-8999-4F13-B9FC-89D7EE69B190}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05A304E3-8999-4F13-B9FC-89D7EE69B190}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05A304E3-8999-4F13-B9FC-89D7EE69B190}.Release|Any CPU.Build.0 = Release|Any CPU
-		{54A41D88-151D-4CCE-8FFC-9EEECC053DDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54A41D88-151D-4CCE-8FFC-9EEECC053DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54A41D88-151D-4CCE-8FFC-9EEECC053DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54A41D88-151D-4CCE-8FFC-9EEECC053DDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BE54CFD-1800-40B9-934B-2869E71B9F47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BE54CFD-1800-40B9-934B-2869E71B9F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BE54CFD-1800-40B9-934B-2869E71B9F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BE54CFD-1800-40B9-934B-2869E71B9F47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

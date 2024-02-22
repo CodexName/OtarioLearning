@@ -1,0 +1,41 @@
+﻿body {
+    margin-top: -100px;
+    text-align: center;
+}
+
+.imagecard {
+    text-align: center;
+    display: inline-block;
+    border-style: solid;
+    border-color: black;
+    border-radius: 9px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgb(90, 71, 31);
+    margin-top: 200px;
+}
+
+    .imagecard img {
+        width: 400px;
+        height: 500px;
+    }
+
+    .imagecard p {
+        font-size: 40px;
+        font-family: Impact, Charcoal, sans-serif;
+    }
+
+button {
+    display: flex;
+    border: none;
+    font-size: 30px;
+    color: aliceblue;
+    font-family: Impact, Charcoal, sans-serif;
+    background-color: black;
+    display: flex;
+    margin-top: 40px;
+    margin-left: 850px;
+    width: 150px;
+    height: 40px;
+}

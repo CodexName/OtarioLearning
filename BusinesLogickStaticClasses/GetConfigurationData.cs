@@ -10,7 +10,7 @@ namespace OtarioLearning.BusinesLogickStaticClasses
               .Build();
         public static string GetAzureBlobConnectionStr()
         {
-            string BlobConnectionString = ConfigurationFile.GetValue<string>("AzureBlobStore:ConnectionStrBlobStore");
+            string BlobConnectionString = ConfigurationFile.GetValue<string>("ConnectionStrBlobStore");
             return BlobConnectionString;
         }
     }

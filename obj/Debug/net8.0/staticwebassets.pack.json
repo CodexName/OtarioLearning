@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\OtarioLearning.bundle.scp.css"
     },
     {
+      "Id": "D:\\DotnetProject\\OtarioLearning\\wwwroot\\css\\StudyWords.css",
+      "PackagePath": "staticwebassets\\css\\StudyWords.css"
+    },
+    {
       "Id": "D:\\DotnetProject\\OtarioLearning\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

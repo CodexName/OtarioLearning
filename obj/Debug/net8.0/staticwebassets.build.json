@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "251XkiUDgxtkEcxELxsJl/+VZqlvcP1KSiT5AOADdsw=",
+  "Hash": "Va19lDZMVO4F02YJ6Z6jpOR0gKJcpscdy0qq6HF4fgE=",
   "Source": "OtarioLearning",
   "BasePath": "_content/OtarioLearning",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\DotnetProject\\OtarioLearning\\wwwroot\\css\\StudyWords.css",
+      "SourceId": "OtarioLearning",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DotnetProject\\OtarioLearning\\wwwroot\\",
+      "BasePath": "_content/OtarioLearning",
+      "RelativePath": "css/StudyWords.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\StudyWords.css"
     },
     {
       "Identity": "D:\\DotnetProject\\OtarioLearning\\wwwroot\\favicon.ico",

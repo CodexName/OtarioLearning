@@ -14,6 +14,14 @@
               "SubPath": "css/site.css"
             },
             "Patterns": null
+          },
+          "StudyWords.css": {
+            "Children": null,
+            "Asset": {
+              "ContentRootIndex": 0,
+              "SubPath": "css/StudyWords.css"
+            },
+            "Patterns": null
           }
         },
         "Asset": null,

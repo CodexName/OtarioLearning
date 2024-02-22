@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<OtarioDbContext>(x => x.UseSqlite(builder.Configuration.GetConnectionString("ConnectionStr")));
+builder.Services.AddDbContext<OtarioDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStr")));
 ServiceCollectionExtention.Services(builder.Services);
 Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.File("", rollingInterval: RollingInterval.Day).CreateLogger();
 

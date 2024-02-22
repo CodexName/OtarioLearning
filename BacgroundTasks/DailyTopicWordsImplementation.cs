@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OtarioStudy.DataBaseContext;
+using Serilog;
 using System;
 
 namespace OtarioStudy.BacgroundTasks
@@ -8,36 +9,46 @@ namespace OtarioStudy.BacgroundTasks
     {        
         public void GetDailyTopic(object obj)
         {
-            var options = new DbContextOptionsBuilder<OtarioDbContext>().UseSqlite("ConnectionStr").Options;
-            using (OtarioDbContext Context = new OtarioDbContext(options))
+            var config = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .Build();
+            string connectionString = config.GetConnectionString("ConnectionStr");
+            var options = new DbContextOptionsBuilder<OtarioDbContext>().UseSqlServer(connectionString).Options;
+            try
             {
-                var UsersList = Context.Users.ToList();
-                var AllTopics = Context.WordsTopics.ToList();
-                foreach (var User in UsersList)
+                using (OtarioDbContext Context = new OtarioDbContext(options))
                 {
-                    foreach (var PassedTopic in User.PassedTopics)
+                    var UsersList = Context.Users.Include(x => x.PassedTopics).ToList();
+                    var AllTopics = Context.WordsTopics.ToList();
+                    foreach (var User in UsersList)
                     {
-                        foreach (var Topic in AllTopics)
+                        foreach (var PassedTopic in User.PassedTopics)
                         {
-                            if (PassedTopic.Topic == Topic.Topic)
+                            foreach (var Topic in AllTopics)
                             {
-                                continue;
-                            }
-                            else if (PassedTopic.Topic != Topic.Topic)
-                            {
-                                Context.Users.ExecuteUpdate(x => x.SetProperty(x => x.TodaysTopic, Topic.Topic));
-                                break;
+                                if (PassedTopic.Topic == Topic.Topic)
+                                {
+                                    continue;
+                                }
+                                else if (PassedTopic.Topic != Topic.Topic)
+                                {
+                                    Context.Users.ExecuteUpdate(x => x.SetProperty(x => x.TodaysTopic, Topic.Topic));
+                                    break;
+                                }
                             }
                         }
                     }
                 }
             }
-           
+            catch (Exception exeption)
+            {
+                Log.Error($"Error {exeption.Message} - Time {DateTime.Now}");
+            }
         }
         public void Start()
         {
             TimerCallback timerCallback = new TimerCallback(GetDailyTopic);
-            Timer timer = new Timer(timerCallback, null, 20000, 86400000);
+            Timer timer = new Timer(timerCallback, null, 200, 8000);
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
